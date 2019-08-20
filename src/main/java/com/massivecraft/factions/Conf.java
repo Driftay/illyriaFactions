@@ -390,9 +390,11 @@ public class Conf {
     // -------------------------------------------- //
     public static Item particleGUIBackgroundItem = new Item("&c ", Collections.emptyList(), XMaterial.GRAY_STAINED_GLASS_PANE, 1);
 
-   public static boolean chestEnabled = true;
-   // Use this to not fuck the server's disk.
-   public static int maxChestLogItems = 1000;
+    public static boolean fchestEnabled = true;
+    public static String fchestInventoryTitle = "&2&lFaction Chest";
+
+    // Use this to not fuck the server's disk.
+    //   public static int maxChestLogItems = 1000;
 
     static {
 
