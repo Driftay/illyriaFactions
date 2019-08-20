@@ -13,8 +13,8 @@ import com.massivecraft.factions.struct.Permission;
 import com.massivecraft.factions.struct.Relation;
 import com.massivecraft.factions.struct.Role;
 import com.massivecraft.factions.util.FactionGUI;
-import com.massivecraft.factions.util.XMaterial;
 import com.massivecraft.factions.util.VisualizeUtil;
+import com.massivecraft.factions.util.XMaterial;
 import com.massivecraft.factions.zcore.fperms.Access;
 import com.massivecraft.factions.zcore.fperms.PermissableAction;
 import com.massivecraft.factions.zcore.persist.MemoryFPlayer;
@@ -531,7 +531,8 @@ public class FactionsPlayerListener implements Listener {
         }
     }
 
-    //inspect
+
+   //inspect
     @EventHandler
     public void onInspect(PlayerInteractEvent e) {
         if (e.getAction().name().contains("BLOCK")) {

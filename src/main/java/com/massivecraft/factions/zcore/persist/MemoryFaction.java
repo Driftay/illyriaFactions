@@ -8,10 +8,7 @@ import com.massivecraft.factions.iface.EconomyParticipator;
 import com.massivecraft.factions.iface.RelationParticipator;
 import com.massivecraft.factions.integration.Econ;
 import com.massivecraft.factions.scoreboards.FTeamWrapper;
-import com.massivecraft.factions.struct.BanInfo;
-import com.massivecraft.factions.struct.Permission;
-import com.massivecraft.factions.struct.Relation;
-import com.massivecraft.factions.struct.Role;
+import com.massivecraft.factions.struct.*;
 import com.massivecraft.factions.util.LazyLocation;
 import com.massivecraft.factions.util.MiscUtil;
 import com.massivecraft.factions.util.RelationUtil;
@@ -69,6 +66,7 @@ public abstract class MemoryFaction implements Faction, EconomyParticipator {
 	protected String player;
 	Inventory chest;
 	Map<String, Object> bannerSerialized;
+   List<ChestLogInfo> chestLogs = new ArrayList<>();
 	private long lastDeath;
 	private int strikes;
 
@@ -415,6 +413,15 @@ public abstract class MemoryFaction implements Faction, EconomyParticipator {
 		}
 		return ItemStack.deserialize(bannerSerialized);
 	}
+
+   public void clearChestLogs() {
+      chestLogs.clear();
+   }
+
+   public void logToChest(ChestLogInfo chestLogInfo) {
+      chestLogs.add(chestLogInfo);
+   }
+
 
     public void setUpgrade(UpgradeType upgrade, int level) {
 		upgrades.put(upgrade.toString(), level);

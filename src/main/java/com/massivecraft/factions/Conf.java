@@ -390,6 +390,10 @@ public class Conf {
     // -------------------------------------------- //
     public static Item particleGUIBackgroundItem = new Item("&c ", Collections.emptyList(), XMaterial.GRAY_STAINED_GLASS_PANE, 1);
 
+   public static boolean chestEnabled = true;
+   // Use this to not fuck the server's disk.
+   public static int maxChestLogItems = 1000;
+
     static {
 
         lockedPermissions.add(PermissableAction.CHEST);

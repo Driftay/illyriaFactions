@@ -1,5 +1,6 @@
 package com.massivecraft.factions.cmd;
 
+import com.massivecraft.factions.Faction;
 import com.massivecraft.factions.SavageFactions;
 import com.massivecraft.factions.struct.Permission;
 import com.massivecraft.factions.struct.Role;
@@ -13,6 +14,8 @@ public class CmdChest extends FCommand {
         this.aliases.add("chest");
         this.aliases.add("pv");
 
+        this.optionalArgs.put("faction", "yours");
+
         this.requirements = new CommandRequirements.Builder(Permission.CHEST)
                 .playerOnly()
                 .memberOnly()
@@ -22,8 +25,12 @@ public class CmdChest extends FCommand {
     @Override
     public void perform(CommandContext context) {
 
+        if (context.args.size() == 1) {
+            Faction target = context.argAsFaction(0);
 
-        if (!SavageFactions.plugin.getConfig().getBoolean("fchest.Enabled")) {
+        }
+
+        if (!SavageFactions.plugin.getConfig().getBoolean("fchest.Enabled", true)) {
             context.fPlayer.sendMessage("This command is disabled!");
             return;
         }
